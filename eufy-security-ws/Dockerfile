@@ -16,7 +16,8 @@ RUN \
     && sed -i 's/else if (this.isLockWifiT8520P()) {/else if (this.isLockWifiVideo()) { metadata = { ...types_1.DeviceProperties[types_1.DeviceType.LOCK_8530] }; } else if (this.isLockWifiT8520P()) {/' /usr/src/app/node_modules/eufy-security-client/build/http/device.js \
     && sed -i 's/if (device_1.Device.isLock(stationData.device_type) \&\&/if ((device_1.Device.isLock(stationData.device_type) || device_1.Device.isLockWifiVideo(stationData.device_type)) \&\&/' /usr/src/app/node_modules/eufy-security-client/build/http/station.js \
     && sed -i 's/else if (device.isLockWifiVideo()) {/else if (device.isLockWifiVideo() \&\& false) {/' /usr/src/app/node_modules/eufy-security-client/build/http/station.js \
-    && sed -i 's/device.isLockWifiT8506() ||/device.isLockWifiVideo() || device.isLockWifiT8506() ||/' /usr/src/app/node_modules/eufy-security-client/build/http/station.js
+    && sed -i 's/device.isLockWifiT8506() ||/device.isLockWifiVideo() || device.isLockWifiT8506() ||/' /usr/src/app/node_modules/eufy-security-client/build/http/station.js \
+    && sed -i 's/device.isLockWifiT8506() ||/device.isLockWifiT85D0() || device.isLockWifiT8506() ||/' /usr/src/app/node_modules/eufy-security-client/build/http/station.js
 COPY run.sh /
 RUN chmod a+x /run.sh
 WORKDIR /data
